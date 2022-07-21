@@ -2,4 +2,4 @@
 set -euo pipefail
 
 export DENO_DIR=/tmp/.deno-dir
-./deno-amazon-linux2-arm64.1.21 run --allow-env --allow-net --allow-read=deno-local-data runtime.ts
+./deno-amazon-linux2-arm64 run --allow-env --allow-net --allow-read=deno-local-data runtime.ts
