@@ -2,4 +2,10 @@
 set -euo pipefail
 
 export DENO_DIR=/tmp/.deno-dir
-./deno-amazon-linux2-arm64 run --allow-env --allow-net --allow-read=deno-local-data runtime.ts
+export LOCAL_TMP_DIR=/tmp/exec-env
+${LAMBDA_RUNTIME_DIR}/deno run \
+  --allow-env \
+  --allow-net \
+  --allow-read=$LOCAL_TMP_DIR \
+  --allow-write=$LOCAL_TMP_DIR \
+  ${LAMBDA_RUNTIME_DIR}/aws-runtime.ts
